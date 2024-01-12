@@ -12,13 +12,20 @@ const signin = require('./controllers/signin.cjs');
 const profile = require('./controllers/profile.cjs');
 const image = require('./controllers/image.cjs');
 
+const url = process.env.DATABASE_URL;
+const host = process.env.DATABASE_HOST;
+const user = process.env.DATABASE_USER;
+const password = process.env.DATABASE_PASSWORD;
+const database = process.env.DATABASE_DB;
+
 const db = knex({
     client: 'pg',
     connection: {
-      host : '127.0.0.1',
-      user : 'postgres',
-      password : 'test',
-      database : 'smart-brain'
+      connectionString: url,
+      host : host,
+      user : user,
+      password : password,
+      database : database
     }
 });
 
